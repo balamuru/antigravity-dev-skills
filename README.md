@@ -58,12 +58,26 @@ Antigravity operates as a single, highly capable agent. Rather than spawning dis
 **Role**: The Kanban Administrator.
 **Usage**: Adopts Claude Code's methodology. Translates the internal `task.md` checklist into formal GitHub Issues using the `gh` CLI for external visibility and tracking.
 
-## Usage
+## Step-by-Step Usage Workflow
 
-You can invoke these skills directly via your conversational prompts with Antigravity:
+To apply this framework and solve a software task from scratch, guide Antigravity through these specific phases by adopting the generated skills:
 
-> "Please act as the `team-lead-orchestrator` and break down my user authentication requirements."
+### Phase 1: Planning (The Architect Role)
+1. **Define the Goal**: Create a `requirements.md` file in your project root detailing what you want to build (e.g., *"Implement a new Redis caching layer"*).
+2. **Equip Team Lead**: Prompt Antigravity: *"Adopt the `team-lead-orchestrator` skill. Read the `requirements.md` and generate our `implementation_plan.md` and `task.md` checklists."*
+3. **Review**: Review the artifacts it creates. If the plan looks good, move to execution.
 
-> "Switch to the `issue-creator` and map those tasks to GitHub."
+### Phase 2: External Tracking (Optional Admin Role)
+4. **Equip Issue Creator**: If you want these tasks tracked externally, prompt Antigravity: *"Adopt the `issue-creator` skill and convert the uncompleted tasks in `task.md` into GitHub Issues."*
 
-> "Let's begin coding. Use the `incremental-orchestrator` skill to tackle the first task."
+### Phase 3: Execution (The Builder Role)
+5. **Equip Incremental Orchestrator**: Prompt Antigravity: *"Switch to the `incremental-orchestrator` skill and begin executing the first task in `task.md`."*
+
+The strict incremental loop will now take over. Antigravity will automatically:
+- Identify the single next sub-task.
+- Write the code.
+- Verify the code against `requirements.md`.
+- Create an atomic Git commit.
+- Pause and ask you to proceed to the next item in `task.md`.
+
+**Why this works**: By forcing the AI to write the plan, save the plan to disk (Artifacts), and constrain it to writing one small feature at a time, we eliminate massive context loss and broken "Big-Bang" pull requests.
