@@ -6,6 +6,13 @@ This guide details the step-by-step lifecycle for applying the Google Antigravit
 
 Guide Antigravity through these specific phases by adopting the generated skills.
 
+### Prerequisites: Workspace Setup
+
+Do NOT clone the framework repository via `git clone` and build inside it, or your git commits will mistakenly point to the framework's history. 
+
+Before starting Phase 0, you must effectively isolate your workspace:
+- **Download as ZIP**: Download this repository as a ZIP from GitHub (which drops the `.git` tracking folder). Extract it, rename the folder, and run `git init` to start a completely fresh commit history.
+
 ### Phase 0: Discovery (The Product Manager Role)
 
 *Use this phase if you don't know exactly what to build or what tech stack to use.*

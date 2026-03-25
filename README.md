@@ -9,6 +9,14 @@ Antigravity operates as a single, highly capable agent. We define **Skills** (`.
 - **Persistent Context**: Goals are defined in `requirements.md` and tracked in `task.md`. The agent perfectly restores context after a system crash by reading these files.
 - **Atomic Loops**: The agent cannot edit 10 files at once. It must Execute, Verify, Commit, and Repeat.
 
+## ⚙️ Installation & Setup (Solving the Git Problem)
+
+**Important**: If you clone this repository via `git clone` and build a production app directly inside it, your `git commit` history will mistakenly point to this framework's repository. 
+
+To build real projects safely, **Download as ZIP**.
+
+Because these skills are highly customized for this framework (e.g., `project-auditor`), the easiest way to start a new project is to download this repository as a ZIP file from GitHub (Code -> Download ZIP). Extract it, rename the folder to your new project name, and run `git init` in your terminal. Because downloading a ZIP strips the original `.git` tracking folder, your commits will perfectly isolate to your own fresh repository.
+
 ## 🚀 Quickstart: Test Drive the Framework
 
 Want to see the framework in action immediately without any setup? We've created a pre-configured, sandboxed environment in the `app/` directory.
