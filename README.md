@@ -107,6 +107,16 @@ Want to see the framework in action immediately without any setup? We've created
 **Role**: The Environment Initializer.
 **Usage**: Equip this skill when starting a new project. It safely sandboxes future work by generating an isolated boundary directory (e.g., `/app`) and pre-populating baseline `requirements.md` and `task.md` specs before handoff.
 
+## 🪝 Advanced: Pre- and Post-Execution Hooks
+
+Because this framework relies entirely on persistent Markdown artifacts and native file-system access, you can easily define automated hooks to run before or after the Orchestrator executes a task.
+
+**1. Script-Based Hooks (Hard Hooks)**
+If you create executable bash scripts in your project workspace (e.g., `./hooks/pre_task.sh` or `./hooks/post_task.sh`), you can instruct the `incremental-orchestrator` to execute them. For example, a post-hook could enforce that `npm run test` and `npm run lint` execute successfully before the agent is allowed to commit its code.
+
+**2. Instructional Hooks (Soft Hooks)**
+Because the Orchestrators read the `task.md` file, you can explicitly add instructional hooks directly into your checklists. (e.g., `"Before starting any sub-task, run git pull. After finishing, run the project-auditor"`).
+
 ## 📚 Usage Documentation
 
 For a comprehensive guide on how to apply these personas to build a complete software project (from discovery and planning to atomic code execution and QA), please read the full **[Usage Guide](USAGE.md)**.

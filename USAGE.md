@@ -80,3 +80,15 @@ The ecosystem provides thousands of "Builder" and "Validator" skills. You can pl
    Once the community skill writes the code, immediately equip our `incremental-orchestrator` to perform the mandatory Verify -> Commit cycle. This ensures the community agent's work aligns with your specifications.
 
 Treating our Orchestrators as the "Foreman" and community skills as the "Hammers and Drills" provides massive capability without losing the strict, artifact-driven safety net.
+
+## Phase 5: Pre- and Post-Execution Hooks (Extensibility)
+
+You can extend the Orchestrator loop by injecting custom hooks. Because the agent actively runs terminal commands during Phase 3, you can force it to run validation scripts automatically.
+
+### Implementing a Post-Hook Example
+
+1. Create a bash script at `./hooks/post_execution.sh` that runs your test suite (e.g., `npm run test`).
+2. Update your `requirements.md` to establish the core constraint:
+> *"Constraint: After executing a task, you must run `./hooks/post_execution.sh`. If it exits with a non-zero code, you must fix the error before executing the atomic Git commit."*
+
+The `incremental-orchestrator` will obey this soft hook, ensuring that broken code is never committed to your repository.
