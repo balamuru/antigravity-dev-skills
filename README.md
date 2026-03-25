@@ -144,6 +144,47 @@ You can execute a workflow by either:
 ### The `// turbo` Annotations
 When executing workflows, the agent will normally pause to ask for your permission before running any terminal commands. To bypass this for safe, repetitive commands, you can add a `// turbo` annotation on the line directly above the step. This grants the agent permission to auto-execute that specific command. To auto-execute all commands in a workflow, place `// turbo-all` anywhere in the file.
 
+## 🤖 Execution Models & Task Delegation
+
+Because Antigravity relies entirely on persistent Markdown files (`task.md`, `requirements.md`) instead of internal agent memory context windows, **state is completely decoupled from the underlying LLM**. 
+
+**Out of the Box (Manual Routing):**
+All tasks and skills execute using whichever default model you've selected in your CLI/interface environment. However, since the context is entirely on disk, you can effortlessly swap models mid-project to optimize for cost and speed:
+1. **Low-cost/Fast Models (e.g., Claude Haiku, Gemini Flash):** Switch to this model when invoking boilerplate skills like `markdown-formatter`, `issue-creator`, or `doc-reviewer`.
+2. **High-capability Models (e.g., Claude Opus, Gemini Pro):** Swap back to heavy models for complex logic, like when invoking `team-lead-orchestrator` or `incremental-orchestrator`.
+The new model picks up seamlessly by reading the exact same artifacts.
+
+**Advanced (Automated Routing via Hooks):**
+To make model selection automatic without manual intervention, you can modify your `.agents/hooks/pre_task.sh` execution scripts to read YAML frontmatter from the `SKILL.md` files (e.g., parsing an `ideal-model: 'gemini-3.1-flash'` tag) to programmatically alter your CLI's target endpoint/environment payload prior to execution.
+
+*Example `.agents/skills/markdown-formatter/SKILL.md` frontmatter:*
+```yaml
+---
+description: Format all markdown documentation.
+ideal-model: 'gemini-3.1-flash'
+---
+```
+
+*Example `.agents/hooks/pre_task.sh`:*
+```bash
+#!/bin/bash
+# Assume $1 is the name of the skill being invoked (e.g., 'markdown-formatter')
+SKILL_FILE=".agents/skills/$1/SKILL.md"
+
+if [ -f "$SKILL_FILE" ]; then
+  # Extract the model name from the YAML frontmatter
+  MODEL=$(grep -m 1 "^ideal-model:" "$SKILL_FILE" | awk -F"'" '{print $2}')
+  
+  if [ ! -z "$MODEL" ]; then
+    echo "Hook Triggered: Routing task to optimal model -> $MODEL"
+    # Export the environment variable referenced by your specific CLI or API client
+    export ACTIVE_LLM_MODEL="$MODEL"
+  else
+    echo "No ideal model specified. Using the default configured model."
+  fi
+fi
+```
+
 ## 📚 Usage Documentation
 
 For a comprehensive guide on how to apply these personas to build a complete software project (from discovery and planning to atomic code execution and QA), please read the full **[Usage Guide](USAGE.md)**.
