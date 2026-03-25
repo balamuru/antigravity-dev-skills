@@ -51,6 +51,12 @@ Want to see the framework in action immediately without any setup? We've created
 
 ## Available Orchestrators
 
+### Product Manager
+
+**Path**: `.agents/skills/product-manager/SKILL.md`
+**Role**: The Interactive Interviewer / Planner.
+**Usage**: Equip this skill when you have a vague idea. It asks you sequential questions to define your MVP features and stack, and outputs a highly detailed `requirements.md` file.
+
 ### Team Lead Orchestrator
 
 **Path**: `.agents/skills/team-lead-orchestrator/SKILL.md`
@@ -96,6 +102,14 @@ Want to see the framework in action immediately without any setup? We've created
 ## Step-by-Step Usage Workflow
 
 Guide Antigravity through these specific phases by adopting the generated skills to apply this framework and solve a software task from scratch.
+
+### Phase 0: Discovery (The Product Manager Role)
+
+*Use this phase if you don't know exactly what to build or what tech stack to use.*
+
+1. **Equip Product Manager**: Prompt Antigravity: *"Adopt the `product-manager` skill. I want to build a social media app for dogs, but I don't know where to start."*
+2. **The Interview**: The agent will ask you sequential questions to define the features, audience, and tech stack interactively.
+3. **The Deliverable**: It will synthesize your conversation and automatically write a comprehensive `requirements.md` file for you.
 
 ### Phase 1: Planning (The Architect Role)
 
