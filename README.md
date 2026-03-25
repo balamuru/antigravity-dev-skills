@@ -117,6 +117,33 @@ If you create executable bash scripts in your project workspace (e.g., `./hooks/
 **2. Instructional Hooks (Soft Hooks)**
 Because the Orchestrators read the `task.md` file, you can explicitly add instructional hooks directly into your checklists. (e.g., `"Before starting any sub-task, run git pull. After finishing, run the project-auditor"`).
 
+## 🔄 Workflows (Automated SOPs)
+
+Beyond standalone skills, Antigravity supports automated Workflows. Workflows are predefined lists of instructions (SOPs) that tell the AI exactly how to execute a specific, standardized process.
+
+### Defining Workflows
+Workflows are defined as `.md` files located in the `[.agents, .agent, _agents, _agent]/workflows/` directory. They require a simple YAML frontmatter block for the description, followed by the specific execution steps.
+
+Example (`.agents/workflows/status-check.md`):
+```markdown
+---
+description: Run a comprehensive status check on the project workspace
+---
+1. List all skills available in the `.agents/skills` directory.
+2. Read the `README.md` to understand the project's current state.
+// turbo
+3. Run `git status` to see if there are any uncommitted changes.
+4. Report the findings concisely.
+```
+
+### Executing Workflows
+You can execute a workflow by either:
+1. **Slash Commands**: Typing the workflow name directly in the chat (e.g., `/status-check`).
+2. **Natural Language**: Asking the agent to "run the status check workflow".
+
+### The `// turbo` Annotations
+When executing workflows, the agent will normally pause to ask for your permission before running any terminal commands. To bypass this for safe, repetitive commands, you can add a `// turbo` annotation on the line directly above the step. This grants the agent permission to auto-execute that specific command. To auto-execute all commands in a workflow, place `// turbo-all` anywhere in the file.
+
 ## 📚 Usage Documentation
 
 For a comprehensive guide on how to apply these personas to build a complete software project (from discovery and planning to atomic code execution and QA), please read the full **[Usage Guide](USAGE.md)**.
