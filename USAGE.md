@@ -11,7 +11,7 @@ Guide Antigravity through these specific phases by adopting the generated skills
 Do NOT clone the framework repository via `git clone` and build inside it, or your git commits will mistakenly point to the framework's history. 
 
 Before starting Phase 0, you must effectively isolate your workspace:
-- **Download as ZIP**: Download this repository as a ZIP from GitHub (which drops the `.git` tracking folder). Extract it, rename the folder, and run `git init` to start a completely fresh commit history.
+- **Download as ZIP**: Download this repository as a [ZIP](https://github.com/balamuru/antigravity-dev-skills/archive/refs/heads/main.zip) from GitHub (which drops the `.git` tracking folder). Extract it, rename the folder, and run `git init` to start a completely fresh commit history.
 
 ### Phase 0: Discovery (The Product Manager Role)
 
