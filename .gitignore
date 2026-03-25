@@ -20,4 +20,21 @@
 .history
 .ionide
 
+# Miscellaneous files
+*.workspace
+*.log
+
+## Intellij+all Patch ###
+# Ignore everything but code style settings and run configurations
+# that are supposed to be shared within teams.
+
+.idea/*
+.idea
+
+!.idea/codeStyles
+!.idea/runConfigurations
+
+# IntelliJ
+out/
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
