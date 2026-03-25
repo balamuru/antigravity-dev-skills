@@ -22,6 +22,7 @@ When invoked, you must meticulously execute the following interactive loop:
      - The core 3-5 "Must-Have" features for an MVP (Minimum Viable Product).
      - The preferred tech stack (or provide a recommendation if they don't know).
      - Any strict constraints (e.g., "Must be contained in the `/app` directory", "Must use Postgres").
+     - The type of software License the project should use (e.g., MIT, Apache 2.0, GPL, or proprietary).
 3. **Synthesis**: Once you have gathered sufficient information to define a clear scope, summarize it for the user and ask for their final approval.
 
 ## The Deliverable
@@ -35,4 +36,5 @@ Once the user approves the synthesis, you must:
    - `## Core Features`: A bulleted list of the MVP features.
    - `## Tech Stack`: The agreed-upon technologies.
    - `## Constraints`: Any hard limitations for the downstream builder skills.
-3. **Handoff**: Tell the user that the requirements have been defined, and explicitly instruct them to: *"Equip the `team-lead-orchestrator` to read the `requirements.md` and begin architectural planning."*
+3. **Licensing**: Generate a `LICENSE` file in the project space containing the text of their chosen license.
+4. **Handoff**: Tell the user that the requirements have been defined, and explicitly instruct them to: *"Equip the `team-lead-orchestrator` to read the `requirements.md` and begin architectural planning."*
