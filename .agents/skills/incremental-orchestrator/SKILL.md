@@ -1,5 +1,6 @@
 ---
 name: incremental-orchestrator
+ideal-model: 'claude-3-5-sonnet'
 description: Enforces an incremental development loop utilizing feature branches, pull requests, and strict issue tracking.
 ---
 

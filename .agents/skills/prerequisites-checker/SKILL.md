@@ -1,5 +1,6 @@
 ---
 name: prerequisites-checker
+ideal-model: 'gemini-3.5-flash'
 description: Verifies that all required external toolings and CLI dependencies are installed and authenticated before starting a project.
 ---
 

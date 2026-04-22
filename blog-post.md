@@ -67,6 +67,9 @@ Instead of one agent trying to do everything poorly, I have a squad of specializ
 - **📐 The Architect (Team Lead)**: Once the requirements are locked, I switch to the `team-lead-orchestrator`. It builds my `implementation_plan.md` and my `task.md`. It’s the checklist that prevents scope creep.
 - **🛠️ The Builder (Incremental Orchestrator)**: This is where the real work happens. It follows a strict `Build -> Test -> Snapshot` loop. It’s forbidden from merging its own code—I'm the only one who can hit that merge button.
 - **🔍 The Auditor (Project Auditor)**: The final gatekeeper. Before I push a major feature, I have the Auditor scan the codebase against the original docs. It catches the "TODOs" and missing README updates that I always forget.
+- **📋 The Issue Trackers (Issue Creator & Project Board Manager)**: They keep my GitHub Issues and Kanban boards in perfect sync with my local `task.md`.
+- **✍️ The Polishers (Doc Reviewer & Markdown Formatter)**: Ensures my documentation is professional, concise, and flawlessly formatted.
+- **🛠️ The Preppers (Prerequisites Checker & Project Scaffolder)**: Sets up my initial sandbox and checks all system dependencies so everything works perfectly on Day 1.
 
 ### My Typical Workflow
 It’s a simple, rhythmic loop that ensures nothing gets lost in the noise:

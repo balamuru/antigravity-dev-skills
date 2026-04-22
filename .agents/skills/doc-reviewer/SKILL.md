@@ -1,5 +1,6 @@
 ---
 name: doc-reviewer
+ideal-model: 'gemini-3.5-flash'
 description: Acts as a technical writer to review documentation for clarity, tone, and conciseness without executing generic code editing.
 ---
 

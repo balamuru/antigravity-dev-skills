@@ -1,5 +1,6 @@
 ---
 name: project-board-manager
+ideal-model: 'gemini-3.5-flash'
 description: Creates and manages GitHub Projects (Kanban boards) to track issues and orchestrate project states.
 ---
 

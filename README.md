@@ -185,6 +185,18 @@ Want to see the framework in action immediately without any setup? We've created
 **Role**: The Environment Initializer.
 **Usage**: Equip this skill when starting a new project. It safely sandboxes future work by generating an isolated boundary directory (e.g., `/app`) and pre-populating baseline `requirements.md` and `task.md` specs before handoff.
 
+### Prerequisites Checker
+
+**Path**: `.agents/skills/prerequisites-checker/SKILL.md`
+**Role**: The Environment Validator.
+**Usage**: Verifies that all required external toolings and CLI dependencies are installed and authenticated before starting a project.
+
+### Project Board Manager
+
+**Path**: `.agents/skills/project-board-manager/SKILL.md`
+**Role**: The Kanban Board Maintainer.
+**Usage**: Creates and manages GitHub Projects (Kanban boards) to track issues and orchestrate project states.
+
 ## 📚 Usage Documentation
 
 For a comprehensive guide on how to apply these personas to build a complete software project (from discovery and planning to atomic code execution and QA), please read the full **[Usage Guide](USAGE.md)**.

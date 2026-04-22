@@ -1,5 +1,6 @@
 ---
 name: markdown-formatter
+ideal-model: 'gemini-3.5-flash'
 description: Enforces strict Markdown styling, linting, and formatting rules across documentation files.
 ---
 

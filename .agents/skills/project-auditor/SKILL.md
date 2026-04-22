@@ -1,5 +1,6 @@
 ---
 name: project-auditor
+ideal-model: 'claude-3-opus'
 description: The final gatekeeper. Reviews code, artifacts, and documentation to ensure 100% alignment and completeness before any feature is considered done.
 ---
 

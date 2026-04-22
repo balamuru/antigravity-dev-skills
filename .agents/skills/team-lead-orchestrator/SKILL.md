@@ -1,5 +1,6 @@
 ---
 name: team-lead-orchestrator
+ideal-model: 'gemini-3.5-pro'
 description: Acts as the project manager, breaking down requirements into tasks and structuring handoffs.
 ---
 

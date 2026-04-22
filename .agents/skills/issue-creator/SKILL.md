@@ -1,5 +1,6 @@
 ---
 name: issue-creator
+ideal-model: 'gemini-3.5-flash'
 description: Translates a high-level task plan artifact into individual GitHub issues for external tracking.
 ---
 

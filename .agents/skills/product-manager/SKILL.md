@@ -1,5 +1,6 @@
 ---
 name: product-manager
+ideal-model: 'gemini-3.5-pro'
 description: Acts as an interactive interviewer. Asks the user questions one by one to define the app, feature set, and tech stack, then generates a complete requirements.md artifact.
 ---
 

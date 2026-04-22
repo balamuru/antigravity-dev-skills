@@ -1,5 +1,6 @@
 ---
 name: project-scaffolder
+ideal-model: 'gemini-3.5-flash'
 description: Initializes isolated project directories with boilerplate architecture, requirements, and task artifacts before handing off to the orchestrators.
 ---
 
