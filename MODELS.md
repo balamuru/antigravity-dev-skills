@@ -18,5 +18,8 @@ This registry serves as the "Source of Truth" for model routing within the Antig
 2. **Configure `.env`**: Add the corresponding API key to your local `.env` file.
 3. **Update Skill**: Set the `ideal-model` frontmatter in your `SKILL.md` to match the **Technical ID**.
 
-## Integration Note
-The `.agents/hooks/pre_task.sh` script automatically reads this registry. If a skill requests a model that is missing an API key in your `.env`, the hook will provide a warning.
+## Integration Note: Dynamic Routing & Fallback
+The framework's hooks (like `.agents/hooks/pre_task.sh`) handle model routing automatically while you chat. When a skill is executed, the hook reads the `ideal-model` from the `SKILL.md` frontmatter, cross-references it with this registry, and pulls the required API key from your `.env` file. 
+
+**What if an API key is missing?**
+If a skill requests a model (e.g., `claude-3-opus`) but you haven't configured the required API key in your `.env`, the hook will provide a warning. However, instead of immediately failing, the framework will gracefully **fallback to a cheap, fast default model (`gemini-3.5-flash`)**, provided your `GOOGLE_API_KEY` is set. This allows you to explore community skills without needing paid API keys for every possible model.

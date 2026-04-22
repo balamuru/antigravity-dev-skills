@@ -105,7 +105,10 @@ As a developer, I'm always looking to optimize my token usage. Anthropic Opus is
 ```
 
 > [!CAUTION]
-> **A Note on Security**: Always use a `.env` file for your `GOOGLE_API_KEY` and `ANTHROPIC_API_KEY`. I’ve included a `MODELS.md` registry in the repo that maps our models to their required keys, so the hook can warn you if a key is missing before it tries to run a task. Never commit your secrets!
+> **A Note on Security**: Always use a `.env` file for your `GOOGLE_API_KEY` and `ANTHROPIC_API_KEY`. I’ve included a `MODELS.md` registry in the repo that maps our models to their required keys. The hook handles the dynamic routing seamlessly in the background while you chat, pulling the required API key for whichever model the file requests. Never commit your secrets!
+
+> [!TIP]
+> **The Graceful Fallback**: What happens if you run a third-party community skill that demands `gpt-4o` but you don't have an OpenAI key? Instead of crashing, the hook will warn you and gracefully default back to my cheap, general-purpose model (`gemini-3.5-flash`). It’s a great safety net when experimenting with new personas.
 
 I use **Claude Sonnet** for the `incremental-orchestrator` and **Gemini Flash** for `markdown-formatter`. I save money, and the work gets done faster.
 

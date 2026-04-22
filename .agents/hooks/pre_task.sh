@@ -22,7 +22,14 @@ if [ -f "$SKILL_FILE" ]; then
         # Check if the environment variable is set
         if [ -z "${!VAR_NAME}" ]; then
           echo "WARNING: Model '$MODEL' requires '$VAR_NAME' but it is not set in your .env."
-          echo "Please configure it to avoid execution errors."
+          echo "Attempting to fallback to a cheap general purpose model (gemini-3.5-flash)..."
+          if [ ! -z "$GOOGLE_API_KEY" ]; then
+            export ACTIVE_LLM_MODEL="gemini-3.5-flash"
+            echo "Fallback successful. Proceeding with gemini-3.5-flash."
+          else
+            echo "WARNING: Fallback model gemini-3.5-flash also missing GOOGLE_API_KEY."
+            echo "Please configure it to avoid execution errors."
+          fi
         else
           echo "Validation: API Key '$VAR_NAME' is present."
           export ACTIVE_LLM_MODEL="$MODEL"

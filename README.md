@@ -75,8 +75,10 @@ While you can manually copy folders, the Antigravity ecosystem supports the [Ski
 
 Because this framework relies entirely on persistent Markdown artifacts and native file-system access, you can easily define automated hooks to run before or after the Orchestrator executes a task.
 
-**1. Automated Model Routing (`.agents/hooks/pre_task.sh`)**
-We provide a pre-task hook as a baseline. It parses YAML frontmatter from `SKILL.md` files (looking for `ideal-model: '...'`) and automatically routes the task to the optimal model (e.g., swapping to a fast model like Gemini Flash for documentation tasks). It also verifies that your environment variables (API keys) are correctly configured.
+**1. Automated Model Routing & Fallback (`.agents/hooks/pre_task.sh`)**
+We provide a pre-task hook as a baseline to handle model routing automatically in the background. It parses the YAML frontmatter from `SKILL.md` files (looking for `ideal-model: '...'`) and seamlessly swaps the active agent to the optimal model (e.g., heavily reasoning with Claude Opus, or quickly formatting with Gemini Flash). 
+
+*Fallback Safety*: If you use a community skill that demands an expensive model you haven’t put the API key for in your `.env` file, the hook will warn you and gracefully **fallback to a cheap, general-purpose model (`gemini-3.5-flash`)** so you aren’t blocked from execution.
 
 **2. Custom Validation (`.agents/hooks/post_task.sh`)**
 Use the post-task template to enforce quality gates. For example, you can tell the agent to run `npm run test` or `npm run lint` automatically after every task, ensuring that broken code is never snapshot or committed.

@@ -26,7 +26,8 @@ The framework includes a central **[Model Registry](MODELS.md)** that maps frien
 
 - **Discovery**: Check the registry to see which models are validated.
 - **Control**: You can add new models to the registry or change which API key they use.
-- **Validation**: The `pre_task.sh` hook cross-references this registry. If you invoke a skill that requires a model you haven't configured in your `.env`, you will receive a warning.
+- **Validation & Routing**: The `pre_task.sh` hook intercepts execution, reads the `ideal-model` frontmatter from the skill, and routes the backend API call to the designated model using the matching key from your `.env`.
+- **Graceful Fallback**: If you invoke a skill that requires a model you haven't configured in your `.env`, you will receive a warning. The system will then automatically fallback to the general-purpose **Gemini 3.5 Flash** (as long as `GOOGLE_API_KEY` is configured), preventing cryptic execution errors.
 
 ---
 
