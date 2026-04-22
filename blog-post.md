@@ -59,23 +59,14 @@ Here’s how I personally categorize the tools I use every day:
 
 ---
 
-## My Crew: The Personas I Rely On
+### My Crew: The Personas I Rely On
 
 Instead of one agent trying to do everything poorly, I have a squad of specialized personas. Here is how I move between them:
 
-```carousel
-**🎨 The Interviewer (Product Manager)**
-When I have a half-baked idea at 2 AM, I invoke the `product-manager`. It doesn't write code; it just asks me sequential, annoying (but necessary) questions until we have a solid `requirements.md`.
-<!-- slide -->
-**📐 The Architect (Team Lead)**
-Once the requirements are locked, I switch to the `team-lead-orchestrator`. It builds my `implementation_plan.md` and my `task.md`. It’s the checklist that prevents scope creep.
-<!-- slide -->
-**🛠️ The Builder (Incremental Orchestrator)**
-This is where the real work happens. It follows a strict `Build -> Test -> Snapshot` loop. It’s forbidden from merging its own code—I'm the only one who can hit that merge button.
-<!-- slide -->
-**🔍 The Auditor (Project Auditor)**
-The final gatekeeper. Before I push a major feature, I have the Auditor scan the codebase against the original docs. It catches the "TODOs" and missing README updates that I always forget.
-```
+- **🎨 The Interviewer (Product Manager)**: When I have a half-baked idea at 2 AM, I invoke the `product-manager`. It doesn't write code; it just asks me sequential, annoying (but necessary) questions until we have a solid `requirements.md`.
+- **📐 The Architect (Team Lead)**: Once the requirements are locked, I switch to the `team-lead-orchestrator`. It builds my `implementation_plan.md` and my `task.md`. It’s the checklist that prevents scope creep.
+- **🛠️ The Builder (Incremental Orchestrator)**: This is where the real work happens. It follows a strict `Build -> Test -> Snapshot` loop. It’s forbidden from merging its own code—I'm the only one who can hit that merge button.
+- **🔍 The Auditor (Project Auditor)**: The final gatekeeper. Before I push a major feature, I have the Auditor scan the codebase against the original docs. It catches the "TODOs" and missing README updates that I always forget.
 
 ### My Typical Workflow
 It’s a simple, rhythmic loop that ensures nothing gets lost in the noise:
@@ -103,9 +94,9 @@ sequenceDiagram
 
 ## The Power-User Hack: Model-Agnostic Routing
 
-As a developer, I'm always looking to optimize my token usage. Anthropic Opus is great, but it's overkill for doc updates. Because Antigravity is artifact-driven, I set up a simple bash hook to route tasks programmatically.
+As a developer, I'm always looking to optimize my token usage. Anthropic Opus is great, but it's overkill for doc updates. Because Antigravity is artifact-driven, I use a simple bash hook to route tasks programmatically.
 
-**My `pre_task.sh` Setup:**
+**The Hook Implementation (`.agents/hooks/pre_task.sh`):**
 ```bash
 #!/bin/bash
 # .agents/hooks/pre_task.sh
