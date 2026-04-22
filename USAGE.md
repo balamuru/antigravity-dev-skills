@@ -1,6 +1,36 @@
-# Antigravity Developer Skills: Usage Guide
-
 This guide details the step-by-step lifecycle for applying the Google Antigravity Orchestrator Skills to autonomously build software from scratch.
+
+## 🛠️ Installation Modes
+
+Depending on your project state, use one of these three modes:
+
+| Mode | Command / Action | Use Case |
+| :--- | :--- | :--- |
+| **New Project** | [Download ZIP](https://github.com/balamuru/antigravity-dev-skills/archive/refs/heads/main.zip) | Clean start with fresh Git history. |
+| **Existing Project** | `cp -r /path/to/framework/.agents .` | Adding AI personas to your current app. |
+| **Scaffolding** | `Equip project-scaffolder` | Creating an isolated sandbox directory. |
+
+---
+
+## 💬 Day 1: Sample Conversation
+
+Here is how you actually talk to Antigravity to trigger the persona chain.
+
+**You**: "Adopt the `product-manager` skill. I want to build a simple Todo app in React."
+
+**Antigravity (PM)**: "Great! I've adopted the PM persona. Let's define the MVP. Question 1: Should we use local storage for the tasks, or do you want a backend database like Supabase?"
+
+**You**: "Local storage is fine for now. Keep it simple."
+
+**Antigravity (PM)**: "...[After 3 more questions]... I have enough info. Synthesizing `requirements.md` now. Done! You should now equip the `team-lead-orchestrator` to plan the architecture."
+
+**You**: "Adopt `team-lead-orchestrator` and plan this using the React requirements."
+
+**Antigravity (Team Lead)**: "I've analyzed `requirements.md`. I'm generating your `implementation_plan.md` and a granular `task.md` checklist... Done! Your first task is setting up the project structure. Switch to `incremental-orchestrator` to begin building."
+
+**You**: "Go. Switch to `incremental-orchestrator` and start Task 1."
+
+---
 
 ## Step-by-Step Usage Workflow
 

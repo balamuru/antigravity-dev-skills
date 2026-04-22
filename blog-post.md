@@ -22,6 +22,31 @@ Antigravity fixes this by moving the state out of the LLM and onto your disk. We
 
 ---
 
+## ⚡ 60-Second Setup: How I Integrated It
+
+I found that there are two main ways to get this into your workflow. 
+
+### Path A: Drop-in to an Existing Repo
+This is what I did for my React app. 
+1. **Copy the Folder**: I just copied the `.agents/` directory from the framework into my project root.
+2. **Start Talking**: Since the skills are file-based, my agent immediately recognized the new personas.
+
+### Path B: Fresh Start
+If I'm starting a greenfield project, I **Download the ZIP** of the framework, extract it, and rename it. This ensures my `git init` starts with a clean slate.
+
+---
+
+## 💬 How I Talk to My Agent
+
+It isn't about complex prompting; it's about shifting the agent's state. My conversations usually look like this:
+
+**Me**: "Adopt the `product-manager` skill. Let's define [Feature X]."
+**Agent**: "I'm the PM now. Let's start the interview..."
+**...[Later]...**
+**Me**: "Switch to `team-lead-orchestrator` and plan the architecture in `implementation_plan.md`."
+
+---
+
 ## My 2026 Developer Landscape
 
 Here’s how I personally categorize the tools I use every day:
@@ -38,7 +63,7 @@ Here’s how I personally categorize the tools I use every day:
 
 Instead of one agent trying to do everything poorly, I have a squad of specialized personas. Here is how I move between them:
 
-````carousel
+```carousel
 **🎨 The Interviewer (Product Manager)**
 When I have a half-baked idea at 2 AM, I invoke the `product-manager`. It doesn't write code; it just asks me sequential, annoying (but necessary) questions until we have a solid `requirements.md`.
 <!-- slide -->
@@ -50,7 +75,7 @@ This is where the real work happens. It follows a strict `Build -> Test -> Snaps
 <!-- slide -->
 **🔍 The Auditor (Project Auditor)**
 The final gatekeeper. Before I push a major feature, I have the Auditor scan the codebase against the original docs. It catches the "TODOs" and missing README updates that I always forget.
-````
+```
 
 ### My Typical Workflow
 It’s a simple, rhythmic loop that ensures nothing gets lost in the noise:

@@ -11,13 +11,35 @@ Antigravity operates as a single, highly capable agent. We define **Skills** (`.
 - **Persistent Context**: Goals are defined in `requirements.md` and tracked in `task.md`. The agent perfectly restores context after a system crash by reading these files.
 - **Atomic Loops**: The agent cannot edit 10 files at once. It must Execute, Verify, Commit, and Repeat.
 
-## ⚙️ Installation & Setup (Solving the Git Problem)
+## ⚙️ How to Start (Choose Your Path)
 
-**Important**: If you clone this repository via `git clone` and build a production app directly inside it, your `git commit` history will mistakenly point to this framework's repository. 
+There are three ways to integrate these skills into your workflow:
 
-To build real projects safely, **Download as ZIP**.
+### Path 1: Greenfield (Fresh Start)
+**Best for**: Starting a new project from scratch.
+1. **Download as ZIP**: Download this repository as a [ZIP](https://github.com/balamuru/antigravity-dev-skills/archive/refs/heads/main.zip) and extract it.
+2. **Initialize**: Run `git init` in the folder.
+3. **Outcome**: You get a clean git history and the full persona framework ready to go.
 
-Because these skills are highly customized for this framework (e.g., `project-auditor`), the easiest way to start a new project is to download this repository as a ZIP file from GitHub (Code -> Download ZIP). Extract it, rename the folder to your new project name, and run `git init` in your terminal. Because downloading a ZIP strips the original `.git` tracking folder, your commits will perfectly isolate to your own fresh repository.
+### Path 2: Retrofit (Existing Project)
+**Best for**: Adding agentic personas to an existing codebase.
+1. **Copy Folder**: Copy the `.agents/` folder directly into the root of your existing project.
+2. **Verification**: Run `ls .agents/skills` to ensure they are visible.
+3. **Outcome**: Your existing repo is now "Agentic-Ready" without polluting your commit history with framework code.
+
+### Path 3: The Sandbox (Scaffolding)
+**Best for**: Building a sub-module or experiment in an isolated directory.
+1. **Equip Scaffolder**: Prompt Antigravity: *"Adopt the `project-scaffolder` skill and initialize a new project in `./my-new-app`."*
+2. **Outcome**: It creates a partitioned directory with baseline artifacts ready for the PM.
+
+---
+
+## 📦 Manual vs. `skild` Package Manager
+
+While you can manually copy folders, the Antigravity ecosystem supports the [Skild](https://github.com/balamuru/skild) package manager for managing community skills.
+
+- **Manual**: Low overhead. Just move the `.agents` folder.
+- **Skild**: Enables searching and installing specialized skills (e.g., `skild install python-expert`) directly from the CLI.
 
 ## Comparison: Kiro vs. Claude Code vs. Antigravity
 
