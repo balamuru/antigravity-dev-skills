@@ -42,3 +42,4 @@ For a given Epic or major milestone, you **MUST** follow this exact loop:
 - **NEVER** write a huge batch of code spanning multiple un-related files without testing or committing.
 - **NEVER** commit feature code directly to the `main` branch.
 - **NEVER** mark a task as complete without the merged PR and closed GitHub issue.
+- **Zero-Code-Until-Tracked**: Do not write feature code unless the project has a remote `origin` and the current task is explicitly linked to an active GitHub issue.

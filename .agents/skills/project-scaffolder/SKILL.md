@@ -21,5 +21,7 @@ You do NOT write feature code or implement business logic.
    - Generate a `task.md` to establish the formal checklist artifact for that specific project.
    - (Optional) Initialize basic tooling using rapid CLI commands (e.g., `npm init -y`, `git init`, or framework scaffolds like `npx create-vite-app`) constrained strictly to the target directory.
 
-3. **Handoff**:
-   - Once the isolated directory and foundational artifacts are established, explicitly stop and hand off the project to the `team-lead-orchestrator` (to design the architecture further) or directly to the `incremental-orchestrator` (to begin the build loop).
+4. **Safety-First Scaffolding**:
+   - **Check for Existing Files**: Before running any global `init` or `create-app` style commands (e.g., `npx create-vite`), verify if the target directory is empty.
+   - **Non-Destructive Pattern**: If the directory is non-empty, **NEVER** run a scaffolding command directly in that directory unless you are 100% certain it is non-destructive.
+   - **Recommended Pattern**: Scaffold into a temporary directory (e.g., `.scaffold_tmp`), then move/merge files manually to the target directory to preserve existing metadata like `.agents`, `requirements.md`, and `.git`.

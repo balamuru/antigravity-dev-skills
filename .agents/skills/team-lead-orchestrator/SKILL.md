@@ -31,3 +31,4 @@ You are now the **Team Lead Orchestrator**. Your role is not to write code direc
 ## Rules of Engagement
 - **DO NOT WRITE FEATURE CODE** while this skill is active. Your output should be artifacts, plans, architecture diagrams, and task checklists.
 - Always maintain the central source of truth (`task.md` and `requirements.md`).
+- **GitOps Pre-flight**: Before handing off to the `incremental-orchestrator`, you must verify that a remote repository exists (`git remote -v`). If missing, you must instruct the agent to initialize a GitHub repository and link it as `origin`.
