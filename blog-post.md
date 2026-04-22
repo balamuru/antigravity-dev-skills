@@ -94,7 +94,7 @@ sequenceDiagram
 
 ## The Power-User Hack: Model-Agnostic Routing
 
-As a developer, I me always looking to optimize my token usage. Anthropic Opus is great, but it's overkill for doc updates. Because Antigravity is artifact-driven, I use a simple bash hook to route tasks programmatically.
+As a developer, I'm always looking to optimize my token usage. Anthropic Opus is great, but it's overkill for doc updates. Because Antigravity is artifact-driven, I use a simple bash hook to route tasks programmatically.
 
 **The Hook Implementation (`.agents/hooks/pre_task.sh`):**
 ```bash
