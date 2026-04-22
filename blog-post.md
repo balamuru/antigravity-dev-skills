@@ -94,25 +94,17 @@ sequenceDiagram
 
 ## The Power-User Hack: Model-Agnostic Routing
 
-As a developer, I'm always looking to optimize my token usage. Anthropic Opus is great, but it's overkill for doc updates. Because Antigravity is artifact-driven, I use a simple bash hook to route tasks programmatically.
+As a developer, I me always looking to optimize my token usage. Anthropic Opus is great, but it's overkill for doc updates. Because Antigravity is artifact-driven, I use a simple bash hook to route tasks programmatically.
 
 **The Hook Implementation (`.agents/hooks/pre_task.sh`):**
 ```bash
-#!/bin/bash
-# .agents/hooks/pre_task.sh
-SKILL_FILE=".agents/skills/$1/SKILL.md"
-
-if [ -f "$SKILL_FILE" ]; then
-  # Grab the 'ideal-model' tag from the skill's metadata
-  MODEL=$(grep "^ideal-model:" "$SKILL_FILE" | awk -F"'" '{print $2}')
-  
-  if [ ! -z "$MODEL" ]; then
-    echo "Switching to optimal engine: $MODEL"
-    export ACTIVE_LLM_MODEL="$MODEL"
-  fi
-fi
+# ... (Calculates optimal model from metadata and validates API keys)
 ```
-I use **Claude Opus** for the `incremental-orchestrator` and **Gemini Flash** for `markdown-formatter`. I save money, and the work gets done faster.
+
+> [!CAUTION]
+> **A Note on Security**: Always use a `.env` file for your `GOOGLE_API_KEY` and `ANTHROPIC_API_KEY`. I’ve included a `MODELS.md` registry in the repo that maps our models to their required keys, so the hook can warn you if a key is missing before it tries to run a task. Never commit your secrets!
+
+I use **Claude Sonnet** for the `incremental-orchestrator` and **Gemini Flash** for `markdown-formatter`. I save money, and the work gets done faster.
 
 ---
 

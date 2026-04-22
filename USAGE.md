@@ -12,6 +12,24 @@ Depending on your project state, use one of these three modes:
 
 ---
 
+## 🔐 Managing Credentials & Controlling Models
+
+Antigravity uses environment variables for secure API key management. 
+
+### Step 1: Environment Configuration
+1. Create a `.env` file from the provided template: `cp .env.example .env`.
+2. Add your API keys (e.g., `GOOGLE_API_KEY`, `ANTHROPIC_API_KEY`).
+3. These variables are consumed by the model-routing hooks to ensure the correct credentials are used for each task.
+
+### Step 2: The Model Registry (`MODELS.md`)
+The framework includes a central **[Model Registry](MODELS.md)** that maps friendly model names to their technical IDs and required API keys. 
+
+- **Discovery**: Check the registry to see which models are validated.
+- **Control**: You can add new models to the registry or change which API key they use.
+- **Validation**: The `pre_task.sh` hook cross-references this registry. If you invoke a skill that requires a model you haven't configured in your `.env`, you will receive a warning.
+
+---
+
 ## 💬 Day 1: Sample Conversation
 
 Here is how you actually talk to Antigravity to trigger the persona chain.
