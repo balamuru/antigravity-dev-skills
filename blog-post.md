@@ -27,12 +27,12 @@ Antigravity fixes this by moving the state out of the LLM and onto your disk. We
 I found that there are two main ways to get this into your workflow. 
 
 ### Path A: Drop-in to an Existing Repo
-This is what I did for my React app. 
+This is what I did for an existing app. 
 1. **Copy the Folder**: I just copied the `.agents/` directory from the framework into my project root.
 2. **Start Talking**: Since the skills are file-based, my agent immediately recognized the new personas.
 
 ### Path B: Fresh Start
-If I'm starting a greenfield project, I **Download the ZIP** of the framework, extract it, and rename it. This ensures my `git init` starts with a clean slate.
+If I'm starting a greenfield project, I **Download the ZIP** of the framework, extract it, and rename it. This ensures my `git init` starts with a clean slate. Since the skills are file-based, my agent immediately recognized the new personas.
 
 ---
 
@@ -132,7 +132,7 @@ If you're tired of agents that talk more than they code, give this a spin.
 1.  **Clone/Download**: [Grab the Repo here](https://github.com/balamuru/antigravity-dev-skills).
 2.  **Initialize**: `git init`.
 3.  **Start Your First Journey**:
-    > *"Adopt the `product-manager` skill and let's build something."*
+    Enter the prompt > *"Adopt the `product-manager` skill and let's build something."*
 
 ---
-*By a developer, for developers. Happy coding.*
+
